@@ -179,12 +179,12 @@ class Base:
 
                 infos["value"] = getattr(self, shortname)
 
-                qual_attrs[qualname] = CgmesAttribute(infos)
+                qual_attrs[qualname] = CgmesAttribute(infos)  # type: ignore
                 seen_attrs.add(shortname)
 
         return qual_attrs
 
-    def to_xml(self, profile_to_export: BaseProfile, id: Optional[str] = None) -> Optional[etree.Element]:
+    def to_xml(self, profile_to_export: BaseProfile, id: Optional[str] = None) -> Optional[etree._Element]:
         """Creates an etree element of self with all non-empty attributes of the profile_to_export
         that are not already defined in the recommanded profile
         This can then be used to generate the xml file of the profile_to_export
@@ -197,7 +197,7 @@ class Base:
         profile_attributes = self._get_attributes_to_export(profile_to_export)
 
         if "mRID" in self.to_dict():
-            obj_id = self.mRID
+            obj_id = self.mRID  # type: ignore
         else:
             obj_id = id
 
@@ -238,7 +238,7 @@ class Base:
         return attributes
 
     @staticmethod
-    def _add_attribute_to_etree(attributes: dict, root: etree.Element, nsmap: dict) -> etree.Element:
+    def _add_attribute_to_etree(attributes: dict, root: etree._Element, nsmap: dict) -> etree._Element:
         rdf_namespace = f"""{{{nsmap["rdf"]}}}"""
         for field_name, attribute in attributes.items():
             # add all attributes relevant to the profile as SubElements
@@ -274,7 +274,7 @@ class Base:
         xml_tree = etree.fromstring(xml_fragment)
 
         # raise an error if the xml does not describe the expected class
-        if not xml_tree.tag.endswith(self.resource_name):
+        if not str(xml_tree.tag).endswith(self.resource_name):
             raise (KeyError(f"The fragment does not correspond to the class {self.resource_name}"))
 
         attribute_dict.update(self._extract_mrid_from_etree(xml_tree=xml_tree))
@@ -294,7 +294,7 @@ class Base:
 
         return attribute_dict
 
-    def _extract_mrid_from_etree(self, xml_tree: etree.Element) -> dict:
+    def _extract_mrid_from_etree(self, xml_tree: etree._Element) -> dict:
         """Parsing the mRID from etree attributes"""
         mrid_dict = {}
         for key, value in xml_tree.attrib.items():
@@ -305,7 +305,9 @@ class Base:
                     mrid_dict = {"mRID": value}
         return mrid_dict
 
-    def _extract_attr_value_from_etree(self, attr_name: str, class_attribute: dict, xml_attribute: etree.Element):
+    def _extract_attr_value_from_etree(
+        self, attr_name: str, class_attribute: "CgmesAttribute", xml_attribute: etree._Element
+    ):
         """Parsing the attribute value from etree attributes"""
         attr_value = None
         # class attributes are pointing to another class/instance defined in .attrib
@@ -321,8 +323,9 @@ class Base:
                 attr_value = attr_value.split("#")[-1]
 
         elif class_attribute["is_list_attribute"]:
-            attr_value = eval(xml_attribute.text)
+            attr_value = eval(str(xml_attribute.text))
         elif class_attribute["is_primitive_attribute"] or class_attribute["is_datatype_attribute"]:
+            assert xml_attribute.text
             attr_value = xml_attribute.text
             if self.__dataclass_fields__[attr_name].type == bool:
                 attr_value = {"true": True, "false": False}.get(attr_value)
@@ -341,7 +344,7 @@ class Base:
         """
         attribute_dict = self._parse_xml_fragment(xml_fragment)
 
-        if attribute_dict["mRID"] == self.mRID:
+        if attribute_dict["mRID"] == self.mRID:  # type: ignore
             for key, value in attribute_dict.items():
                 attr = getattr(self, key)
                 if isinstance(attr, list):
@@ -381,3 +384,11 @@ class CgmesAttribute(TypedDict):
     # Custom attributes might have something different, given as metadata.
     # See readme for more information.
     namespace: str
+    attr_name: str
+    is_class_attribute: bool
+    is_enum_attribute: bool
+    is_list_attribute: bool
+    is_primitive_attribute: bool
+    is_datatype_attribute: bool
+    attribute_class: str
+    attribute_main_profile: BaseProfile

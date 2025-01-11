@@ -69,7 +69,7 @@ class Reader(BaseModel):
             if event == "start":
                 level += 1
 
-            class_namespace = next((namespace for namespace in bases if elem.tag.startswith(namespace)), None)
+            class_namespace = next((namespace for namespace in bases if str(elem.tag).startswith(namespace)), None)
             if event == "start" and class_namespace is not None and level == 2:
                 class_name, uuid = self._extract_classname_uuid(elem, class_namespace, namespace_rdf)
                 if uuid is not None:
@@ -148,6 +148,7 @@ class Reader(BaseModel):
         events = ("end", "start-ns", "end-ns")
         for event, elem in etree.iterparse(source, events):
             if event == "start-ns":
+                assert elem is not None
                 class_namespace, ns = elem
                 namespaces[class_namespace] = ns
             elif event == "end":
@@ -169,7 +170,7 @@ class Reader(BaseModel):
         return namespace
 
     def _get_path_to_module(self, class_name: str) -> str:
-        if self.custom_folder and importlib.find_loader(self.custom_folder + "." + class_name):
+        if self.custom_folder and importlib.find_loader(self.custom_folder + "." + class_name):  # type: ignore
             path_to_module = self.custom_folder + "." + class_name
         else:
             path_to_module = self.cgmes_version_path + "." + class_name

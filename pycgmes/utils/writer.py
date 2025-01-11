@@ -55,7 +55,7 @@ class Writer(BaseModel):
 
     def _generate(
         self, profile: BaseProfile, model_id: str, custom_namespaces: Dict[str, str] = {}
-    ) -> Optional[etree.ElementTree]:
+    ) -> Optional[etree._ElementTree]:
         """Write CIM objects as RDF/XML data to a string.
 
         This function creates RDF/XML tree corresponding to one profile.
