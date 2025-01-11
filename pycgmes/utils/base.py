@@ -1,9 +1,9 @@
 import importlib
-from lxml import etree
 from dataclasses import Field, fields
 from functools import cached_property
-from typing import Any, TypeAlias, TypedDict, Optional
+from typing import Any, Optional, TypeAlias, TypedDict
 
+from lxml import etree
 from pydantic.dataclasses import dataclass
 
 from .config import cgmes_resource_config
@@ -325,7 +325,7 @@ class Base:
         elif class_attribute["is_primitive_attribute"] or class_attribute["is_datatype_attribute"]:
             attr_value = xml_attribute.text
             if self.__dataclass_fields__[attr_name].type == bool:
-                attr_value = {"true": True, "false": False}.get(attr_value, None)
+                attr_value = {"true": True, "false": False}.get(attr_value)
             else:
                 # types are int, float or str (date, time and datetime treated as str)
                 attr_value = self.__dataclass_fields__[attr_name].type(attr_value)
