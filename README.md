@@ -22,7 +22,7 @@ SPDX-License-Identifier: Apache-2.0
     - [SHACL files](#shacl-files)
     - [V3 source zip](#v3-source-zip)
     - [Dataclasses](#dataclasses)
-  - [Library build, CI, CD...](#library-build-ci-cd)
+  - [Library build, CI, CD](#library-build-ci-cd)
     - [CI](#ci)
     - [CD](#cd)
   - [License](#license)
@@ -224,7 +224,7 @@ files (those extracted and mentioned above) but is usually not needed.
 
 Generated from the modernpython serialisation of [cimgen](https://github.com/sogno-platform/cimgen).
 
-## Library build, CI, CD...
+## Library build, CI, CD
 
 ### CI
 
