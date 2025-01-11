@@ -10,13 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from .RotatingMachine import RotatingMachine
-from .ActivePower import ActivePower
-from .Boolean import Boolean
-from .Float import Float
-from .Frequency import Frequency
-from .Integer import Integer
-from .PerCent import PerCent
-from .RotationSpeed import RotationSpeed
 
 
 @dataclass
@@ -51,6 +44,7 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.DY,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": True,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -66,6 +60,7 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SSH,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": True,
@@ -81,12 +76,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SC,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Boolean,
+            "attribute_class": "Boolean",
         },
     )
 
@@ -97,12 +93,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SC,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PerCent,
+            "attribute_class": "PerCent",
         },
     )
 
@@ -113,12 +110,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SC,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
@@ -129,12 +127,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": Frequency,
+            "attribute_class": "Frequency",
         },
     )
 
@@ -145,12 +144,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": RotationSpeed,
+            "attribute_class": "RotationSpeed",
         },
     )
 
@@ -161,12 +161,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SC,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Integer,
+            "attribute_class": "Integer",
         },
     )
 
@@ -177,12 +178,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SC,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -193,12 +195,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SC,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Boolean,
+            "attribute_class": "Boolean",
         },
     )
 
@@ -209,12 +212,13 @@ class AsynchronousMachine(RotatingMachine):
                 Profile.SC,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 

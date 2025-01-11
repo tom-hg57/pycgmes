@@ -10,11 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from .Equipment import Equipment
-from .ActivePower import ActivePower
-from .Float import Float
-from .Money import Money
-from .PerCent import PerCent
-from .Seconds import Seconds
 
 
 @dataclass
@@ -65,6 +60,7 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -80,6 +76,7 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -95,6 +92,7 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -110,6 +108,7 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": True,
@@ -125,12 +124,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PerCent,
+            "attribute_class": "PerCent",
         },
     )
 
@@ -141,12 +141,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
@@ -157,12 +158,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -173,12 +175,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -189,12 +192,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -205,12 +209,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -221,12 +226,13 @@ class GeneratingUnit(Equipment):
                 Profile.SSH,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
@@ -237,12 +243,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -253,12 +260,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -269,12 +277,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": ActivePower,
+            "attribute_class": "ActivePower",
         },
     )
 
@@ -285,12 +294,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
@@ -301,12 +311,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": Money,
+            "attribute_class": "Money",
         },
     )
 
@@ -317,12 +328,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": Seconds,
+            "attribute_class": "Seconds",
         },
     )
 
@@ -333,12 +345,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PerCent,
+            "attribute_class": "PerCent",
         },
     )
 
@@ -349,12 +362,13 @@ class GeneratingUnit(Equipment):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": Money,
+            "attribute_class": "Money",
         },
     )
 

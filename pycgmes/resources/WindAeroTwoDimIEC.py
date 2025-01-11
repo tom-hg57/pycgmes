@@ -10,8 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from .IdentifiedObject import IdentifiedObject
-from .AngleDegrees import AngleDegrees
-from .PU import PU
 
 
 @dataclass
@@ -38,6 +36,7 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": True,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -53,12 +52,13 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PU,
+            "attribute_class": "PU",
         },
     )
 
@@ -69,12 +69,13 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PU,
+            "attribute_class": "PU",
         },
     )
 
@@ -85,12 +86,13 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PU,
+            "attribute_class": "PU",
         },
     )
 
@@ -101,12 +103,13 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PU,
+            "attribute_class": "PU",
         },
     )
 
@@ -117,12 +120,13 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PU,
+            "attribute_class": "PU",
         },
     )
 
@@ -133,12 +137,13 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": AngleDegrees,
+            "attribute_class": "AngleDegrees",
         },
     )
 
@@ -149,12 +154,13 @@ class WindAeroTwoDimIEC(IdentifiedObject):
                 Profile.DY,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": AngleDegrees,
+            "attribute_class": "AngleDegrees",
         },
     )
 

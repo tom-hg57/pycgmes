@@ -10,7 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from .PhaseTapChangerNonLinear import PhaseTapChangerNonLinear
-from .AngleDegrees import AngleDegrees
 
 
 @dataclass
@@ -35,12 +34,13 @@ class PhaseTapChangerAsymmetrical(PhaseTapChangerNonLinear):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": AngleDegrees,
+            "attribute_class": "AngleDegrees",
         },
     )
 

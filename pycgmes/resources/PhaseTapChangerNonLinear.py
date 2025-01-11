@@ -10,8 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from .PhaseTapChanger import PhaseTapChanger
-from .PerCent import PerCent
-from .Reactance import Reactance
 
 
 @dataclass
@@ -41,12 +39,13 @@ class PhaseTapChangerNonLinear(PhaseTapChanger):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": PerCent,
+            "attribute_class": "PerCent",
         },
     )
 
@@ -57,12 +56,13 @@ class PhaseTapChangerNonLinear(PhaseTapChanger):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": Reactance,
+            "attribute_class": "Reactance",
         },
     )
 
@@ -73,12 +73,13 @@ class PhaseTapChangerNonLinear(PhaseTapChanger):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": Reactance,
+            "attribute_class": "Reactance",
         },
     )
 

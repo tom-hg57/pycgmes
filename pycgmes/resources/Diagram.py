@@ -10,7 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from .IdentifiedObject import IdentifiedObject
-from .Float import Float
 
 
 @dataclass
@@ -41,6 +40,7 @@ class Diagram(IdentifiedObject):
                 Profile.DL,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -56,6 +56,7 @@ class Diagram(IdentifiedObject):
                 Profile.DL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": True,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -71,6 +72,7 @@ class Diagram(IdentifiedObject):
                 Profile.DL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": True,
@@ -86,12 +88,13 @@ class Diagram(IdentifiedObject):
                 Profile.DL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
@@ -102,12 +105,13 @@ class Diagram(IdentifiedObject):
                 Profile.DL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
@@ -118,12 +122,13 @@ class Diagram(IdentifiedObject):
                 Profile.DL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
@@ -134,12 +139,13 @@ class Diagram(IdentifiedObject):
                 Profile.DL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 

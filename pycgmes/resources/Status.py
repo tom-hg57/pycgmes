@@ -10,8 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from ..utils.base import Base
-from .DateTime import DateTime
-from .String import String
 
 
 @dataclass
@@ -33,12 +31,13 @@ class Status(Base):
                 Profile.GL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": DateTime,
+            "attribute_class": "DateTime",
         },
     )
 
@@ -49,12 +48,13 @@ class Status(Base):
                 Profile.GL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": String,
+            "attribute_class": "String",
         },
     )
 
@@ -65,12 +65,13 @@ class Status(Base):
                 Profile.GL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": String,
+            "attribute_class": "String",
         },
     )
 
@@ -81,12 +82,13 @@ class Status(Base):
                 Profile.GL,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": String,
+            "attribute_class": "String",
         },
     )
 

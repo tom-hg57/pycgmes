@@ -10,10 +10,6 @@ from pydantic.dataclasses import dataclass
 
 from ..utils.profile import BaseProfile, Profile
 from .PowerSystemResource import PowerSystemResource
-from .Boolean import Boolean
-from .Float import Float
-from .Integer import Integer
-from .Voltage import Voltage
 
 
 @dataclass
@@ -55,6 +51,7 @@ class TapChanger(PowerSystemResource):
                 Profile.SV,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": True,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -70,6 +67,7 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": True,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -85,6 +83,7 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": False,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
@@ -100,12 +99,13 @@ class TapChanger(PowerSystemResource):
                 Profile.SSH,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Boolean,
+            "attribute_class": "Boolean",
         },
     )
 
@@ -116,12 +116,13 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Integer,
+            "attribute_class": "Integer",
         },
     )
 
@@ -132,12 +133,13 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Integer,
+            "attribute_class": "Integer",
         },
     )
 
@@ -148,12 +150,13 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Boolean,
+            "attribute_class": "Boolean",
         },
     )
 
@@ -164,12 +167,13 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Integer,
+            "attribute_class": "Integer",
         },
     )
 
@@ -180,12 +184,13 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": True,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": False,
-            "attribute_class": Voltage,
+            "attribute_class": "Voltage",
         },
     )
 
@@ -196,12 +201,13 @@ class TapChanger(PowerSystemResource):
                 Profile.EQ,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Integer,
+            "attribute_class": "Integer",
         },
     )
 
@@ -212,12 +218,13 @@ class TapChanger(PowerSystemResource):
                 Profile.SSH,
             ],
             "is_used": True,
+            "namespace": "http://iec.ch/TC57/CIM100#",  # NOSONAR
             "is_class_attribute": False,
             "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "attribute_class": Float,
+            "attribute_class": "Float",
         },
     )
 
