@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import importlib
+from collections.abc import Iterator
 from enum import EnumType
 from pathlib import Path
-from typing import Iterator
 
 import pytest
 

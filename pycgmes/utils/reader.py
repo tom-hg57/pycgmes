@@ -1,10 +1,11 @@
-from lxml import etree
 import importlib
 import logging
-from .profile import Profile
-from pydantic import BaseModel, Field
-from typing import Dict, Optional, Literal
+from typing import Dict, Literal, Optional
 
+from lxml import etree
+from pydantic import BaseModel, Field
+
+from .profile import Profile
 
 logger = logging.getLogger(__name__)
 
@@ -124,10 +125,10 @@ class Reader(BaseModel):
             self._log_message("info", info_msg)
 
         except ModuleNotFoundError:
-            error_msg = "Module {} not implemented".format(class_name)
+            error_msg = f"Module {class_name} not implemented"
             self._log_message("errors", error_msg)
         except Exception as e:
-            error_msg = "Could not create/update {}, {}".format(uuid, e)
+            error_msg = f"Could not create/update {uuid}, {e}"
             self._log_message("errors", error_msg)
 
     def _check_metadata(self, elem):

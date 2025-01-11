@@ -1,8 +1,10 @@
+from typing import Dict, Optional
+
 from lxml import etree
 from pydantic import BaseModel
+
 from .constants import NAMESPACES
 from .profile import BaseProfile, Profile
-from typing import Dict, Optional
 
 
 class Writer(BaseModel):
