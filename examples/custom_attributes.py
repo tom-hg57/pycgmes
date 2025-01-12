@@ -9,6 +9,7 @@ from pydantic import Field
 from pydantic.dataclasses import dataclass
 
 from pycgmes.resources.ACLineSegment import ACLineSegment
+from pycgmes.utils.constants import NAMESPACES
 from pycgmes.utils.profile import BaseProfile
 
 
@@ -25,11 +26,13 @@ class CustomAttribute(ACLineSegment):
                 CustomProfile.MYOWN,
             ],
             "is_used": True,
+            "namespace": "custom for colour",
             "is_class_attribute": False,
+            "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "namespace": "custom for colour",
+            "attribute_class": "String",
         },
     )
 
@@ -41,9 +44,11 @@ class CustomAttribute(ACLineSegment):
             ],
             "is_used": True,
             "is_class_attribute": False,
+            "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
+            "attribute_class": "String",
         },
         # No namespace defined, it will use the class namespace.
     )
