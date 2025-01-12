@@ -149,7 +149,7 @@ class Base:
         for parent in reversed(self.__class__.__mro__[:-1]):
             for f in fields(parent):
                 shortname = f.name
-                qualname = f"{parent.apparent_name()}.{shortname}"  # type: ignore
+                qualname = f"{parent.apparent_name()}.{shortname}"
                 infos = dict()
 
                 if f not in self.cgmes_attribute_names_in_profile(profile) or shortname in seen_attrs:
