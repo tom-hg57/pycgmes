@@ -49,7 +49,7 @@ class Writer(BaseModel):
             full_file_name = outputfile + "_" + profile.long_name + ".xml"
             output = self._generate(profile, model_id + "_" + profile_name, custom_namespaces)
             if output:
-                output.write(full_file_name, pretty_print=True, xml_declaration=True, encoding="UTF-8")
+                output.write(full_file_name, pretty_print=True, xml_declaration=True, encoding="utf-8")
                 profile_file_map[profile] = full_file_name
         return profile_file_map
 

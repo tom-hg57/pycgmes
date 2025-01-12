@@ -108,7 +108,7 @@ class Reader(BaseModel):
             elem (etree.Element): description of the instance for the given profile
         """
         topology = self.import_result["topology"]
-        elem_str = etree.tostring(elem, encoding="utf8")
+        elem_str = etree.tostring(elem, encoding="utf-8")
         try:
             # Import the module for the CGMES object.
             module_name = self._get_path_to_module(class_name)
