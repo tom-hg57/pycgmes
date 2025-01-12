@@ -9,7 +9,6 @@ from pydantic import Field
 from pydantic.dataclasses import dataclass
 
 from pycgmes.resources.ACLineSegment import ACLineSegment
-from pycgmes.utils.constants import NAMESPACES
 from pycgmes.utils.profile import BaseProfile
 
 
@@ -55,7 +54,7 @@ class CustomAttribute(ACLineSegment):
 
     @classmethod
     def apparent_name(cls) -> str:
-        return cls.__base__.apparent_name()
+        return cls.__base__.apparent_name()  # type: ignore
 
     @cached_property
     def namespace(self) -> str:
