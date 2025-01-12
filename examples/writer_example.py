@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Thomas Guenther <tom@toms-cafe.de>
+# SPDX-FileCopyrightText: 2025 Thomas Guenther <tom@toms-cafe.de>
 #
 # SPDX-License-Identifier: Apache-2.0
 
@@ -12,8 +12,7 @@ from pycgmes.resources.TopologicalIsland import TopologicalIsland
 from pycgmes.resources.TopologicalNode import TopologicalNode
 from pycgmes.resources.VoltageLevel import VoltageLevel
 from pycgmes.utils.base import Base
-from pycgmes.utils.chevron_writer import ChevronWriter
-from pycgmes.utils.profile import Profile
+from pycgmes.utils.writer import Writer
 
 _curr_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -44,10 +43,8 @@ def main() -> None:
 
 
 def write(outputfile: str, model_id: str, objects: dict[str, Base]) -> None:
-    writer = ChevronWriter(objects)
-    class_profile_map = ChevronWriter.get_class_profile_map(writer.objects.values())
-    class_profile_map["Terminal"] = Profile.TP  # override recommended profile
-    profile_file_map = writer.write(outputfile, model_id, class_profile_map)
+    writer = Writer(objects=objects)
+    profile_file_map = writer.write(outputfile, model_id)
     for idx, (profile, file) in enumerate(profile_file_map.items()):
         print(f"CIM outputfile {idx + 1} for {profile}: {file}")
 
