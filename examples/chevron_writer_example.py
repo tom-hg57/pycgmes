@@ -12,7 +12,7 @@ from pycgmes.resources.TopologicalIsland import TopologicalIsland
 from pycgmes.resources.TopologicalNode import TopologicalNode
 from pycgmes.resources.VoltageLevel import VoltageLevel
 from pycgmes.utils.base import Base
-from pycgmes.utils.writer import Writer
+from pycgmes.utils.chevron_writer import ChevronWriter
 
 _curr_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -43,8 +43,8 @@ def main():
 
 
 def write(outputfile: str, model_id: str, objects: dict[str, Base]):
-    writer = Writer(objects)
-    class_profile_map = Writer.get_class_profile_map(writer.objects.values())
+    writer = ChevronWriter(objects)
+    class_profile_map = ChevronWriter.get_class_profile_map(writer.objects.values())
     profile_file_map = writer.write(outputfile, model_id, class_profile_map)
     for idx, (profile, file) in enumerate(profile_file_map.items()):
         print(f"CIM outputfile {idx + 1} for {profile}: {file}")
