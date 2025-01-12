@@ -34,11 +34,13 @@ class CustomBayAttr(Bay):
                 CustomProfile.CUS,
             ],
             "is_used": True,
+            "namespace": "custom",
             "is_class_attribute": False,
+            "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
-            "namespace": "custom",
+            "attribute_class": "String",
         },
     )
 
@@ -76,19 +78,18 @@ class CustomBase(Base):
             ],
             "is_used": True,
             "is_class_attribute": False,
+            "is_datatype_attribute": False,
             "is_enum_attribute": False,
             "is_list_attribute": False,
             "is_primitive_attribute": True,
+            "attribute_class": "String",
         },
+        # No namespace defined, it will use the class namespace.
     )
 
     @classmethod
     def apparent_name(cls) -> str:
         return "Cheese"
-
-    @cached_property
-    def possible_profiles(self) -> set[BaseProfile]:
-        return {CustomProfile.FRO}
 
     @cached_property
     def recommended_profile(self) -> BaseProfile:
