@@ -15,7 +15,7 @@ authors = [{name = "pycgmes", email = "pycgmes@alliander.com"}]
 readme = "README.md"
 repository = "https://github.com/alliander-opensource/pycgmes"
 license = "Apache 2.0"
-requires-python = ">=3.10, <4.0"
+requires-python = ">=3.11, <4.0"
 dependencies = [
     "poetry >=2",
     "pydantic >=2", # Used for dataclasses
@@ -26,7 +26,6 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Framework :: Pydantic",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Typing :: Typed",
