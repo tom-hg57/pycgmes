@@ -67,7 +67,7 @@ if __name__ == "__main__":
     print("Attributes in profile MYOWN:")
     print(
         json.dumps(
-            {qualname: attr for qualname, attr in my_resource.cgmes_attributes_in_profile(CustomProfile.MYOWN).items()},
+            my_resource.cgmes_attributes_in_profile(CustomProfile.MYOWN),
             indent=2,
         )
     )

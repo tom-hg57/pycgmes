@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-import os
+from pathlib import Path
 
 from pycgmes.resources.Analog import Analog
 from pycgmes.resources.AnalogValue import AnalogValue
@@ -15,12 +15,12 @@ from pycgmes.utils.base import Base
 from pycgmes.utils.chevron_writer import ChevronWriter
 from pycgmes.utils.profile import Profile
 
-_curr_dir = os.path.dirname(os.path.realpath(__file__))
+_curr_dir = Path(__file__).resolve().parent
 
 
 def main() -> None:
-    output_dir = _curr_dir + "/output"
-    os.makedirs(output_dir, exist_ok=True)
+    output_dir = _curr_dir / "output"
+    output_dir.mkdir(parents=True, exist_ok=True)
     objects = {
         "BaseVoltage.20": BaseVoltage(mRID="BaseVoltage.20", nominalVoltage=20.0),
         "VoltageLevel.98": VoltageLevel(mRID="VoltageLevel.98", name="98", BaseVoltage="BaseVoltage.20"),
@@ -40,14 +40,14 @@ def main() -> None:
         ),
         "AnalogValue.N0.Voltage": AnalogValue(mRID="AnalogValue.N0.Voltage", Analog="Analog.N0.Voltage"),
     }
-    write(output_dir + "/Example_Model", "Example_Model", objects)
+    write(output_dir / "Example_Model", "Example_Model", objects)
 
 
-def write(outputfile: str, model_id: str, objects: dict[str, Base]) -> None:
+def write(outputfile: Path, model_id: str, objects: dict[str, Base]) -> None:
     writer = ChevronWriter(objects)
     class_profile_map = ChevronWriter.get_class_profile_map(writer.objects.values())
     class_profile_map["Terminal"] = Profile.TP  # override recommended profile
-    profile_file_map = writer.write(outputfile, model_id, class_profile_map)
+    profile_file_map = writer.write(str(outputfile), model_id, class_profile_map)
     for idx, (profile, file) in enumerate(profile_file_map.items()):
         print(f"CIM outputfile {idx + 1} for {profile}: {file}")
 
