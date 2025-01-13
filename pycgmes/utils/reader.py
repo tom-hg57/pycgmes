@@ -1,5 +1,6 @@
-import importlib
 import logging
+from importlib import import_module
+from importlib.util import find_spec
 from typing import Literal
 
 from lxml import etree
@@ -112,7 +113,7 @@ class Reader(BaseModel):
         try:
             # Import the module for the CGMES object.
             module_name = self._get_path_to_module(class_name)
-            module = importlib.import_module(module_name)
+            module = import_module(module_name)
 
             klass = getattr(module, class_name)
             if uuid not in topology:
@@ -170,7 +171,7 @@ class Reader(BaseModel):
         return namespace
 
     def _get_path_to_module(self, class_name: str) -> str:
-        if self.custom_folder and importlib.find_loader(self.custom_folder + "." + class_name):  # type: ignore
+        if self.custom_folder and find_spec(self.custom_folder + "." + class_name):
             path_to_module = self.custom_folder + "." + class_name
         else:
             path_to_module = self.cgmes_version_path + "." + class_name
