@@ -1,5 +1,3 @@
-from typing import Dict, Optional
-
 from lxml import etree
 from pydantic import BaseModel
 
@@ -12,19 +10,19 @@ class Writer(BaseModel):
 
     Args:
         objects (dict): Mapping of rdfid to CIM object
-        Model_metadata (Optional[Dict[str, str]]): any additional data to add in header
+        Model_metadata (Optional[dict[str, str]]): any additional data to add in header
             default = {"modelingAuthoritySet": "www.sogno.energy" }
     """
 
-    objects: Dict
-    writer_metadata: Dict[str, str] = {}
+    objects: dict
+    writer_metadata: dict[str, str] = {}
 
     def write(
         self,
         outputfile: str,
         model_id: str,
-        class_profile_map: Dict[str, BaseProfile] = {},
-        custom_namespaces: Dict[str, str] = {},
+        class_profile_map: dict[str, BaseProfile] = {},
+        custom_namespaces: dict[str, str] = {},
     ) -> dict[BaseProfile, str]:
         """Write CIM RDF/XML files.
         This function writes CIM objects into one or more RDF/XML files separated by profiles.
@@ -34,8 +32,8 @@ class Writer(BaseModel):
         Args:
             outputfile (str): Stem of the output file, resulting files: <outputfile>_<profile.long_name>.xml.
             model_id (str): Stem of the model IDs, resulting IDs: <model_id>_<profile.long_name>.
-            class_profile_map Optional[Dict[str, str]:  Mapping of CIM type to profile.
-            custom_namespaces Optional[Dict[str, str]: {"namespace_prefix": "namespace_uri"}
+            class_profile_map Optional[dict[str, str]:  Mapping of CIM type to profile.
+            custom_namespaces Optional[dict[str, str]: {"namespace_prefix": "namespace_uri"}
 
         Returns:
             Mapping of profile to outputfile.
@@ -54,8 +52,8 @@ class Writer(BaseModel):
         return profile_file_map
 
     def _generate(
-        self, profile: BaseProfile, model_id: str, custom_namespaces: Dict[str, str] = {}
-    ) -> Optional[etree._ElementTree]:
+        self, profile: BaseProfile, model_id: str, custom_namespaces: dict[str, str] = {}
+    ) -> etree._ElementTree | None:
         """Write CIM objects as RDF/XML data to a string.
 
         This function creates RDF/XML tree corresponding to one profile.
@@ -63,7 +61,7 @@ class Writer(BaseModel):
         Args:
             profile (BaseProfile):    Only data for this profile should be written.
             model_id (str):   Stem of the model IDs, resulting IDs: <modelID>_<profileName>.
-            custom_namespaces Optional[Dict[str, str]]: {"namespace_prefix": "namespace_uri"}
+            custom_namespaces Optional[dict[str, str]]: {"namespace_prefix": "namespace_uri"}
 
         Returns:
             etree of the profile
