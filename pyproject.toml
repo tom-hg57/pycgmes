@@ -2,14 +2,26 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-[tool.poetry]
+[build-system]
+# Used for building package from poetry. Present by default, not actually used.
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
 name = "pycgmes"
 version = "2.0.5"
 description = "Python dataclasses for CGMES 3.0.0"
-authors = ["pycgmes <pycgmes@alliander.com>"]
+authors = [{name = "pycgmes", email = "pycgmes@alliander.com"}]
 readme = "README.md"
 repository = "https://github.com/alliander-opensource/pycgmes"
 license = "Apache 2.0"
+requires-python = ">=3.10, <4.0"
+dependencies = [
+    "poetry >=2",
+    "pydantic >=2", # Used for dataclasses
+    "chevron >=0.14.0", # Used for writer
+    "lxml >=5.3.0"
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Framework :: Pydantic",
@@ -22,16 +34,6 @@ classifiers = [
 ]
 # This will be added to pycgmes-shacl (see directory shacl).
 exclude = ["./pycgmes/shacl"]
-# Because the standard structure (packagename) is used, it is not needed to give
-# a package configuration entry.
-
-
-[tool.poetry.dependencies]
-python = "^3.10"
-poetry = ">=1.5.0 <2" # key 'priority' in source
-pydantic = ">=2" # Used for dataclasses
-chevron = ">=0.14.0" # Used for writer
-lxml = "*"
 
 [tool.poetry.group.dev.dependencies]
 coverage = { extras = ["toml"], version = "*" } # unit test coverage
@@ -84,7 +86,6 @@ defineConstant = { TYPE_CHECKING = true }
 # have a happy strict mode, and they take about 5mintes to install (there are a lot of them!)
 # Long story short: basic is fine.
 typeCheckingMode = "basic"
-
 
 [tool.ruff]
 line-length = 120
@@ -142,13 +143,6 @@ extend-ignore-names = [
 [tool.ruff.format]
 docstring-code-format = true
 
-
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib",] # modern way to import tests
 pythonpath = ["."] # Allows from pycgmes import in the tests, which is easier for the IDE.
-
-
-[build-system]
-# Used for building package from poetry. Present by default, not actually used.
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

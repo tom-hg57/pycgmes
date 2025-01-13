@@ -1,6 +1,6 @@
 import importlib
 import logging
-from typing import Dict, Literal, Optional
+from typing import Literal
 
 from lxml import etree
 from pydantic import BaseModel, Field
@@ -20,19 +20,19 @@ class Reader(BaseModel):
     """
 
     cgmes_version_path: str
-    custom_namespaces: Optional[Dict[str, str]] = None
-    custom_folder: Optional[str] = None
-    logger_grouped: Dict[str, Dict[str, int]] = Field(default_factory=lambda: {"errors": {}, "info": {}})
-    import_result: Dict = Field(default_factory=lambda: {"meta_info": {}, "topology": {}})
+    custom_namespaces: dict[str, str] | None = None
+    custom_folder: str | None = None
+    logger_grouped: dict[str, dict[str, int]] = Field(default_factory=lambda: {"errors": {}, "info": {}})
+    import_result: dict = Field(default_factory=lambda: {"meta_info": {}, "topology": {}})
 
-    def parse_profiles(self, xml_files: list[str], start_dict: Optional[Dict] = None):
+    def parse_profiles(self, xml_files: list[str], start_dict: dict | None = None):
         """Parses all profiles contained in xml_files and returns a list containing
         all the objects defined in the profiles "mRID": Object\n
         Errors encounterd in the parsing can be recovered in Reader.logger_grouped
 
         Args:
             xml_files (list): list with the path to all the profiles to parse
-            start_dict (Optional[Dict]): To parse profiles on top of an existing list dict(meta_info, topology)
+            start_dict (Optional[dict]): To parse profiles on top of an existing list dict(meta_info, topology)
 
         Returns:
             list: ["topology": dict of all the objects defined in the profiles {"mRID": Object}, "meta_info"]
@@ -143,7 +143,7 @@ class Reader(BaseModel):
 
     # Returns a map of class_namespace to namespace for the given XML file.
     @staticmethod
-    def _get_namespaces(source) -> Dict:
+    def _get_namespaces(source) -> dict:
         namespaces = {}
         events = ("end", "start-ns", "end-ns")
         for event, elem in etree.iterparse(source, events):

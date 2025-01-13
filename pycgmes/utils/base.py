@@ -1,7 +1,7 @@
 import importlib
 from dataclasses import Field, fields
 from functools import cached_property
-from typing import Any, Optional, TypeAlias, TypedDict
+from typing import Any, TypeAlias, TypedDict
 
 from lxml import etree
 from pydantic.dataclasses import dataclass
@@ -184,7 +184,7 @@ class Base:
 
         return qual_attrs
 
-    def to_xml(self, profile_to_export: BaseProfile, id: Optional[str] = None) -> Optional[etree._Element]:
+    def to_xml(self, profile_to_export: BaseProfile, id: str | None = None) -> etree._Element | None:
         """Creates an etree element of self with all non-empty attributes of the profile_to_export
         that are not already defined in the recommanded profile
         This can then be used to generate the xml file of the profile_to_export

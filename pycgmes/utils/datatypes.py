@@ -1,5 +1,3 @@
-from typing import Optional, Union
-
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
@@ -21,7 +19,7 @@ class Primitive:
 
 @dataclass(config=cgmes_resource_config)
 class CIMDatatype(Primitive):
-    multiplier: Optional[UnitMultiplier] = Field(default=None, frozen=True)
-    unit: Optional[Union[UnitSymbol, Currency]] = Field(default=None, frozen=True)
-    denominatorMultiplier: Optional[UnitMultiplier] = Field(default=None, frozen=True)
-    denominatorUnit: Optional[UnitSymbol] = Field(default=None, frozen=True)
+    multiplier: UnitMultiplier | None = Field(default=None, frozen=True)
+    unit: UnitSymbol | Currency | None = Field(default=None, frozen=True)
+    denominatorMultiplier: UnitMultiplier | None = Field(default=None, frozen=True)
+    denominatorUnit: UnitSymbol | None = Field(default=None, frozen=True)

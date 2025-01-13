@@ -58,7 +58,7 @@ if "ruff" in COMMAND_LINE_TARGETS or "lint" in COMMAND_LINE_TARGETS:
         cmd += " --fix"
     _exec(cmd, env=os.environ)
     # Don't change generated files!
-    cmd = f"ruff check {_RESOURCES} --no-fix --ignore I001,F401,N815,N999,RUF100,W291,W293"
+    cmd = f"ruff check {_RESOURCES} --no-fix --ignore I001,F401,N815,N999,RUF100,UP007,W291,W293"
     _exec(cmd, env=os.environ)
 
 
