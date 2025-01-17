@@ -92,6 +92,10 @@ class CustomBase(Base):
         return "Cheese"
 
     @cached_property
+    def namespace(self) -> str:
+        return "cheesy namespace"
+
+    @cached_property
     def recommended_profile(self) -> BaseProfile:
         return CustomProfile.FRO
 
@@ -150,13 +154,13 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:ns0="custom">
               <md:FullModel rdf:about="model_Tom">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://custom</md:Model.profile>
               </md:FullModel>
               <cim:Bay rdf:ID="CBA">
-                <cim:Bay.colour>Blue</cim:Bay.colour>
+                <ns0:Bay.colour>Blue</ns0:Bay.colour>
               </cim:Bay>
               <cim:CustomBayClass rdf:ID="CBC">
               </cim:CustomBayClass>
@@ -178,7 +182,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_CoreEquipment">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/CoreEquipment-EU/3.0</md:Model.profile>
@@ -213,14 +217,14 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:ns0="cheesy namespace">
               <md:FullModel rdf:about="model_Mage">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://fromage</md:Model.profile>
               </md:FullModel>
-              <cim:Cheese rdf:ID="CB">
-                <cim:Cheese.colour>Red</cim:Cheese.colour>
-              </cim:Cheese>
+              <ns0:Cheese rdf:ID="CB">
+                <ns0:Cheese.colour>Red</ns0:Cheese.colour>
+              </ns0:Cheese>
             </rdf:RDF>
             """
         )

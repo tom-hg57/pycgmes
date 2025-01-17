@@ -116,7 +116,7 @@ class CustomNS(Base):
         # no namespace
     )
 
-    @property
+    @cached_property
     def namespace(self) -> str:
         return "cheesy namespace"
 

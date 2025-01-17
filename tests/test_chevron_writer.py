@@ -80,7 +80,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_CoreEquipment">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/CoreEquipment-EU/3.0</md:Model.profile>
@@ -109,7 +109,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_Operation">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/Operation-EU/3.0</md:Model.profile>
@@ -140,7 +140,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_StateVariables">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/StateVariables-EU/3.0</md:Model.profile>
@@ -167,7 +167,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_Topology">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/Topology-EU/3.0</md:Model.profile>
@@ -208,7 +208,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:eu="http://iec.ch/TC57/CIM100-European#">
               <md:FullModel rdf:about="model_CoreEquipment">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/CoreEquipment-EU/3.0</md:Model.profile>
@@ -221,7 +221,7 @@ class TestChevronWriter:
                 <cim:VoltageLevel.BaseVoltage rdf:resource="#BaseVoltage.20" />
               </cim:VoltageLevel>
               <cim:Analog rdf:about="#Analog.N0.Voltage">
-                <cim:IdentifiedObject.shortName>N0</cim:IdentifiedObject.shortName>
+                <eu:IdentifiedObject.shortName>N0</eu:IdentifiedObject.shortName>
               </cim:Analog>
             </rdf:RDF>
             """
@@ -232,7 +232,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_Operation">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/Operation-EU/3.0</md:Model.profile>
@@ -267,7 +267,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_GeographicalLocation">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/GeographicalLocation-EU/3.0</md:Model.profile>
@@ -309,7 +309,7 @@ class TestChevronWriter:
         expected = textwrap.dedent(
             """\
             <?xml version="1.0" encoding="utf-8" ?>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="http://iec.ch/TC57/CIM100#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:cim="http://iec.ch/TC57/CIM100#">
               <md:FullModel rdf:about="model_CoreEquipment">
                 <md:Model.modelingAuthoritySet>www.sogno.energy</md:Model.modelingAuthoritySet>
                 <md:Model.profile>http://iec.ch/TC57/ns/CIM/CoreEquipment-EU/3.0</md:Model.profile>
