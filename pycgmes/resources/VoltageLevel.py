@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -30,7 +29,7 @@ class VoltageLevel(EquipmentContainer):
       preferable to use operational VoltageLimit, which prevails, if present.
     """
 
-    BaseVoltage: Optional[str] = Field(
+    BaseVoltage: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -64,7 +63,7 @@ class VoltageLevel(EquipmentContainer):
         },
     )
 
-    Substation: Optional[str] = Field(
+    Substation: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

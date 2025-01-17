@@ -8,20 +8,18 @@ from .profile import BaseProfile, Profile
 class Writer(BaseModel):
     """Class for writing CIM RDF/XML files
 
-    Args:
-        objects (dict): Mapping of rdfid to CIM object
-        Model_metadata (Optional[dict[str, str]]): any additional data to add in header
-            default = {"modelingAuthoritySet": "www.sogno.energy" }
+    :param objects:          Mapping {mRID: CIM object}
+    :param writer_metadata:  Any additional data in header (default: {"modelingAuthoritySet": "www.sogno.energy"})
     """
 
     objects: dict
-    writer_metadata: dict[str, str] = {}
+    writer_metadata: dict[str, str] = {"modelingAuthoritySet": "www.sogno.energy"}
 
     def write(
         self,
         outputfile: str,
         model_id: str,
-        class_profile_map: dict[str, BaseProfile] = {},
+        custom_profiles: list[BaseProfile] = [],
         custom_namespaces: dict[str, str] = {},
     ) -> dict[BaseProfile, str]:
         """Write CIM RDF/XML files.
@@ -29,18 +27,15 @@ class Writer(BaseModel):
         Each CIM object will be written to its corresponding profile file depending on class_profile_map.
         But some objects to more than one file if some attribute profiles are not the same as the class profile.
 
-        Args:
-            outputfile (str): Stem of the output file, resulting files: <outputfile>_<profile.long_name>.xml.
-            model_id (str): Stem of the model IDs, resulting IDs: <model_id>_<profile.long_name>.
-            class_profile_map Optional[dict[str, str]:  Mapping of CIM type to profile.
-            custom_namespaces Optional[dict[str, str]: {"namespace_prefix": "namespace_uri"}
+        :param outputfile:          Stem of the output file, resulting files: <outputfile>_<profile.long_name>.xml.
+        :param model_id:            Stem of the model IDs, resulting IDs: <model_id>_<profile.long_name>.
+        :param custom_profiles:     List of custom profiles to export.
+        :param custom_namespaces:   {"namespace_prefix": "namespace_uri"}
 
-        Returns:
-            Mapping of profile to outputfile.
+        :return:                    Mapping of profile to outputfile.
         """
         profile_list: list[BaseProfile] = list(Profile)
-        if class_profile_map:
-            profile_list += {p for p in class_profile_map.values() if p not in profile_list}
+        profile_list += {p for p in custom_profiles if p not in profile_list}
         profile_file_map: dict[BaseProfile, str] = {}
         for profile in profile_list:
             profile_name = profile.long_name
@@ -58,22 +53,17 @@ class Writer(BaseModel):
 
         This function creates RDF/XML tree corresponding to one profile.
 
-        Args:
-            profile (BaseProfile):    Only data for this profile should be written.
-            model_id (str):   Stem of the model IDs, resulting IDs: <modelID>_<profileName>.
-            custom_namespaces Optional[dict[str, str]]: {"namespace_prefix": "namespace_uri"}
+        :param profile:             Only data for this profile should be written.
+        :param model_id:            Stem of the model IDs, resulting IDs: <modelID>_<profileName>.
+        :param custom_namespaces:   {"namespace_prefix": "namespace_uri"}
 
-        Returns:
-            etree of the profile
+        :return:                    etree of the profile
         """
-        writer_info = {"modelingAuthoritySet": "www.sogno.energy"}
-        writer_info.update(self.writer_metadata)
         fullmodel = {
             "id": model_id,
-            "Model": writer_info,
+            "Model": self.writer_metadata,
         }
-        for uri in profile.uris:
-            fullmodel["Model"].update({"profile": uri})
+        fullmodel["Model"].update({"profile": profile.uris})
 
         nsmap = NAMESPACES
         nsmap.update(custom_namespaces)
@@ -85,10 +75,15 @@ class Writer(BaseModel):
 
         # FullModel header
         model = etree.Element(md_namespace + "FullModel", nsmap=nsmap)
-        model.set(rdf_namespace + "about", "#" + fullmodel["id"])
+        model.set(rdf_namespace + "about", fullmodel["id"])
         for key, value in fullmodel["Model"].items():
-            element = etree.SubElement(model, md_namespace + "Model." + key)
-            element.text = value
+            if isinstance(value, list):
+                for item in value:
+                    element = etree.SubElement(model, md_namespace + "Model." + key)
+                    element.text = item
+            else:
+                element = etree.SubElement(model, md_namespace + "Model." + key)
+                element.text = value
         root.append(model)
 
         count = 0

@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -28,7 +27,7 @@ class BusNameMarker(IdentifiedObject):
       priority.  Use 2 as priority is less than 1 and so on.
     """
 
-    ReportingGroup: Optional[str] = Field(
+    ReportingGroup: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -24,7 +23,7 @@ class Clamp(ConductingEquipment):
       i.e. the line segment terminal with sequence number equal to 1.
     """
 
-    ACLineSegment: Optional[str] = Field(
+    ACLineSegment: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

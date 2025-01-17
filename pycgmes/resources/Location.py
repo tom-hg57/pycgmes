@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -25,7 +24,7 @@ class Location(IdentifiedObject):
     mainAddress: Main address of the location.
     """
 
-    CoordinateSystem: Optional[str] = Field(
+    CoordinateSystem: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -57,7 +56,7 @@ class Location(IdentifiedObject):
         },
     )
 
-    PowerSystemResources: Optional[str] = Field(
+    PowerSystemResources: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -73,7 +72,7 @@ class Location(IdentifiedObject):
         },
     )
 
-    mainAddress: Optional[str] = Field(
+    mainAddress: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

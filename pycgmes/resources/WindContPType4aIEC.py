@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -23,7 +22,7 @@ class WindContPType4aIEC(IdentifiedObject):
     tufiltp4a: Voltage measurement filter time constant (Tufiltp4A) (>= 0). It is a type-dependent parameter.
     """
 
-    WindTurbineType4aIEC: Optional[str] = Field(
+    WindTurbineType4aIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

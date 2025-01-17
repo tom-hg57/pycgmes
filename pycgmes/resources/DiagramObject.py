@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -50,7 +49,7 @@ class DiagramObject(IdentifiedObject):
       diagram.
     """
 
-    Diagram: Optional[str] = Field(
+    Diagram: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -82,7 +81,7 @@ class DiagramObject(IdentifiedObject):
         },
     )
 
-    DiagramObjectStyle: Optional[str] = Field(
+    DiagramObjectStyle: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -98,7 +97,7 @@ class DiagramObject(IdentifiedObject):
         },
     )
 
-    IdentifiedObject: Optional[str] = Field(
+    IdentifiedObject: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

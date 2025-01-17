@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -22,7 +21,7 @@ class WindGenType3aIEC(WindGenType3IEC):
     tic: Current PI controller integration time constant (TIc) (>= 0). It is a type-dependent parameter.
     """
 
-    WindTurbineType4IEC: Optional[str] = Field(
+    WindTurbineType4IEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

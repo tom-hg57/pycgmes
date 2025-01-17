@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -26,7 +25,7 @@ class TopologicalIsland(IdentifiedObject):
     TopologicalNodes: A topological node belongs to a topological island.
     """
 
-    AngleRefTopologicalNode: Optional[str] = Field(
+    AngleRefTopologicalNode: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

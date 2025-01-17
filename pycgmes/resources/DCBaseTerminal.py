@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -23,7 +22,7 @@ class DCBaseTerminal(ACDCTerminal):
     DCTopologicalNode: See association end Terminal.TopologicalNode.
     """
 
-    DCNode: Optional[str] = Field(
+    DCNode: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -39,7 +38,7 @@ class DCBaseTerminal(ACDCTerminal):
         },
     )
 
-    DCTopologicalNode: Optional[str] = Field(
+    DCTopologicalNode: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

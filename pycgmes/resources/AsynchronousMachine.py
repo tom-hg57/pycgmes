@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -37,7 +36,7 @@ class AsynchronousMachine(RotatingMachine):
     rxLockedRotorRatio: Locked rotor ratio (R/X). Used for short circuit data exchange according to IEC 60909.
     """
 
-    AsynchronousMachineDynamics: Optional[str] = Field(
+    AsynchronousMachineDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

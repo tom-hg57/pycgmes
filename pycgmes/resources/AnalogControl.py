@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -22,7 +21,7 @@ class AnalogControl(Control):
     minValue: Normal value range minimum for any of the Control.value. Used for scaling, e.g. in bar graphs.
     """
 
-    AnalogValue: Optional[str] = Field(
+    AnalogValue: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

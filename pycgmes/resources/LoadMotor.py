@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -48,7 +47,7 @@ class LoadMotor(IdentifiedObject):
     vt: Voltage threshold for tripping (Vt).  Typical value = 0,7.
     """
 
-    LoadAggregate: Optional[str] = Field(
+    LoadAggregate: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

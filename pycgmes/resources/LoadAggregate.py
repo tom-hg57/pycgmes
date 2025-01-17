@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -27,7 +26,7 @@ class LoadAggregate(LoadDynamics):
     LoadStatic: Aggregate static load associated with this aggregate load.
     """
 
-    LoadMotor: Optional[str] = Field(
+    LoadMotor: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -43,7 +42,7 @@ class LoadAggregate(LoadDynamics):
         },
     )
 
-    LoadStatic: Optional[str] = Field(
+    LoadStatic: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

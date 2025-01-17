@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -27,7 +26,7 @@ class TurbineGovernorDynamics(DynamicsFunctionBlock):
     TurbineLoadControllerDynamics: Turbine load controller providing input to this turbine-governor.
     """
 
-    AsynchronousMachineDynamics: Optional[str] = Field(
+    AsynchronousMachineDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -43,7 +42,7 @@ class TurbineGovernorDynamics(DynamicsFunctionBlock):
         },
     )
 
-    SynchronousMachineDynamics: Optional[str] = Field(
+    SynchronousMachineDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -59,7 +58,7 @@ class TurbineGovernorDynamics(DynamicsFunctionBlock):
         },
     )
 
-    TurbineLoadControllerDynamics: Optional[str] = Field(
+    TurbineLoadControllerDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

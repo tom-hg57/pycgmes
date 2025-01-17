@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -25,7 +24,7 @@ class ConductingEquipment(Equipment):
       connectivity nodes or topological nodes.
     """
 
-    BaseVoltage: Optional[str] = Field(
+    BaseVoltage: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -41,7 +40,7 @@ class ConductingEquipment(Equipment):
         },
     )
 
-    SvStatus: Optional[str] = Field(
+    SvStatus: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -31,7 +30,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
     VoltageCompensatorDynamics: Voltage compensator model associated with this excitation system model.
     """
 
-    DiscontinuousExcitationControlDynamics: Optional[str] = Field(
+    DiscontinuousExcitationControlDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -47,7 +46,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
         },
     )
 
-    OverexcitationLimiterDynamics: Optional[str] = Field(
+    OverexcitationLimiterDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -63,7 +62,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
         },
     )
 
-    PFVArControllerType1Dynamics: Optional[str] = Field(
+    PFVArControllerType1Dynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -79,7 +78,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
         },
     )
 
-    PFVArControllerType2Dynamics: Optional[str] = Field(
+    PFVArControllerType2Dynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -95,7 +94,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
         },
     )
 
-    PowerSystemStabilizerDynamics: Optional[str] = Field(
+    PowerSystemStabilizerDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -111,7 +110,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
         },
     )
 
-    SynchronousMachineDynamics: Optional[str] = Field(
+    SynchronousMachineDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -127,7 +126,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
         },
     )
 
-    UnderexcitationLimiterDynamics: Optional[str] = Field(
+    UnderexcitationLimiterDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -143,7 +142,7 @@ class ExcitationSystemDynamics(DynamicsFunctionBlock):
         },
     )
 
-    VoltageCompensatorDynamics: Optional[str] = Field(
+    VoltageCompensatorDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

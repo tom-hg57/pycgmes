@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -38,7 +37,7 @@ class SynchronousMachineDynamics(RotatingMachineDynamics):
       one generator.
     """
 
-    CrossCompoundTurbineGovernorDyanmics: Optional[str] = Field(
+    CrossCompoundTurbineGovernorDyanmics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -54,7 +53,7 @@ class SynchronousMachineDynamics(RotatingMachineDynamics):
         },
     )
 
-    CrossCompoundTurbineGovernorDynamics: Optional[str] = Field(
+    CrossCompoundTurbineGovernorDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -70,7 +69,7 @@ class SynchronousMachineDynamics(RotatingMachineDynamics):
         },
     )
 
-    ExcitationSystemDynamics: Optional[str] = Field(
+    ExcitationSystemDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -102,7 +101,7 @@ class SynchronousMachineDynamics(RotatingMachineDynamics):
         },
     )
 
-    MechanicalLoadDynamics: Optional[str] = Field(
+    MechanicalLoadDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -118,7 +117,7 @@ class SynchronousMachineDynamics(RotatingMachineDynamics):
         },
     )
 
-    SynchronousMachine: Optional[str] = Field(
+    SynchronousMachine: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

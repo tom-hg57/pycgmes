@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -27,7 +26,7 @@ class DiagramObjectPoint(Base):
     zPosition: The Z coordinate of this point.
     """
 
-    DiagramObject: Optional[str] = Field(
+    DiagramObject: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -43,7 +42,7 @@ class DiagramObjectPoint(Base):
         },
     )
 
-    DiagramObjectGluePoint: Optional[str] = Field(
+    DiagramObjectGluePoint: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -47,7 +46,7 @@ class WindContRotorRIEC(IdentifiedObject):
         },
     )
 
-    WindGenTurbineType2IEC: Optional[str] = Field(
+    WindGenTurbineType2IEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

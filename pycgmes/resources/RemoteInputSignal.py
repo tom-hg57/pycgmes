@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -30,7 +29,7 @@ class RemoteInputSignal(IdentifiedObject):
     remoteSignalType: Type of input signal.
     """
 
-    DiscontinuousExcitationControlDynamics: Optional[str] = Field(
+    DiscontinuousExcitationControlDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -46,7 +45,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    PFVArControllerType1Dynamics: Optional[str] = Field(
+    PFVArControllerType1Dynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -62,7 +61,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    PowerSystemStabilizerDynamics: Optional[str] = Field(
+    PowerSystemStabilizerDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -78,7 +77,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    Terminal: Optional[str] = Field(
+    Terminal: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -94,7 +93,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    UnderexcitationLimiterDynamics: Optional[str] = Field(
+    UnderexcitationLimiterDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -110,7 +109,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    VoltageCompensatorDynamics: Optional[str] = Field(
+    VoltageCompensatorDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -126,7 +125,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    WindPlantDynamics: Optional[str] = Field(
+    WindPlantDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -142,7 +141,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    WindTurbineType1or2Dynamics: Optional[str] = Field(
+    WindTurbineType1or2Dynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -158,7 +157,7 @@ class RemoteInputSignal(IdentifiedObject):
         },
     )
 
-    WindTurbineType3or4Dynamics: Optional[str] = Field(
+    WindTurbineType3or4Dynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

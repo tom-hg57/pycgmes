@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -46,7 +45,7 @@ class Measurement(IdentifiedObject):
     unitSymbol: The unit of measure of the measured quantity.
     """
 
-    PowerSystemResource: Optional[str] = Field(
+    PowerSystemResource: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -62,7 +61,7 @@ class Measurement(IdentifiedObject):
         },
     )
 
-    Terminal: Optional[str] = Field(
+    Terminal: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

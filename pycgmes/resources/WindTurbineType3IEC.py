@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -25,7 +24,7 @@ class WindTurbineType3IEC(WindTurbineType3or4IEC):
     WindMechIEC: Wind mechanical model associated with this wind turbine type 3 model.
     """
 
-    WindAeroOneDimIEC: Optional[str] = Field(
+    WindAeroOneDimIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -41,7 +40,7 @@ class WindTurbineType3IEC(WindTurbineType3or4IEC):
         },
     )
 
-    WindAeroTwoDimIEC: Optional[str] = Field(
+    WindAeroTwoDimIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -57,7 +56,7 @@ class WindTurbineType3IEC(WindTurbineType3or4IEC):
         },
     )
 
-    WindContPType3IEC: Optional[str] = Field(
+    WindContPType3IEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -73,7 +72,7 @@ class WindTurbineType3IEC(WindTurbineType3or4IEC):
         },
     )
 
-    WindContPitchAngleIEC: Optional[str] = Field(
+    WindContPitchAngleIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -89,7 +88,7 @@ class WindTurbineType3IEC(WindTurbineType3or4IEC):
         },
     )
 
-    WindGenType3IEC: Optional[str] = Field(
+    WindGenType3IEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -105,7 +104,7 @@ class WindTurbineType3IEC(WindTurbineType3or4IEC):
         },
     )
 
-    WindMechIEC: Optional[str] = Field(
+    WindMechIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

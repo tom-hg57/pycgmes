@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -23,7 +22,7 @@ class EnergyArea(IdentifiedObject):
     ControlArea: The control area specification that is used for the load forecast.
     """
 
-    ControlArea: Optional[str] = Field(
+    ControlArea: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

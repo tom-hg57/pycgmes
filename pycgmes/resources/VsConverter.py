@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -41,7 +40,7 @@ class VsConverter(ACDCConverter):
       from power flow. The attribute shall be a positive value.
     """
 
-    CapabilityCurve: Optional[str] = Field(
+    CapabilityCurve: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -57,7 +56,7 @@ class VsConverter(ACDCConverter):
         },
     )
 
-    VSCDynamics: Optional[str] = Field(
+    VSCDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

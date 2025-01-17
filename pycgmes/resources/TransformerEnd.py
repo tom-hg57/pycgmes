@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -32,7 +31,7 @@ class TransformerEnd(IdentifiedObject):
     xground: (for Yn and Zn connections) Reactive part of neutral impedance where `grounded` is true.
     """
 
-    BaseVoltage: Optional[str] = Field(
+    BaseVoltage: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -48,7 +47,7 @@ class TransformerEnd(IdentifiedObject):
         },
     )
 
-    PhaseTapChanger: Optional[str] = Field(
+    PhaseTapChanger: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -64,7 +63,7 @@ class TransformerEnd(IdentifiedObject):
         },
     )
 
-    RatioTapChanger: Optional[str] = Field(
+    RatioTapChanger: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -80,7 +79,7 @@ class TransformerEnd(IdentifiedObject):
         },
     )
 
-    Terminal: Optional[str] = Field(
+    Terminal: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

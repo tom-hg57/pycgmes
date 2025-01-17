@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -25,7 +24,7 @@ class WindTurbineType3or4IEC(WindTurbineType3or4Dynamics):
     WindRefFrameRotIEC: Reference frame rotation model associated with this wind turbine type 3 or type 4 model.
     """
 
-    WIndContQIEC: Optional[str] = Field(
+    WIndContQIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -41,7 +40,7 @@ class WindTurbineType3or4IEC(WindTurbineType3or4Dynamics):
         },
     )
 
-    WindContCurrLimIEC: Optional[str] = Field(
+    WindContCurrLimIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -57,7 +56,7 @@ class WindTurbineType3or4IEC(WindTurbineType3or4Dynamics):
         },
     )
 
-    WindContQLimIEC: Optional[str] = Field(
+    WindContQLimIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -73,7 +72,7 @@ class WindTurbineType3or4IEC(WindTurbineType3or4Dynamics):
         },
     )
 
-    WindContQPQULimIEC: Optional[str] = Field(
+    WindContQPQULimIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -89,7 +88,7 @@ class WindTurbineType3or4IEC(WindTurbineType3or4Dynamics):
         },
     )
 
-    WindProtectionIEC: Optional[str] = Field(
+    WindProtectionIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -105,7 +104,7 @@ class WindTurbineType3or4IEC(WindTurbineType3or4Dynamics):
         },
     )
 
-    WindRefFrameRotIEC: Optional[str] = Field(
+    WindRefFrameRotIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

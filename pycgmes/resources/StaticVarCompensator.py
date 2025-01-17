@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -37,7 +36,7 @@ class StaticVarCompensator(RegulatingCondEq):
       voltage setpoint, the reactive power output is zero.
     """
 
-    StaticVarCompensatorDynamics: Optional[str] = Field(
+    StaticVarCompensatorDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

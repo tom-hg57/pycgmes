@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -32,7 +31,7 @@ class RotatingMachine(RegulatingCondEq):
       according to IEC 60909. The attribute shall be a positive value.
     """
 
-    GeneratingUnit: Optional[str] = Field(
+    GeneratingUnit: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -48,7 +47,7 @@ class RotatingMachine(RegulatingCondEq):
         },
     )
 
-    HydroPump: Optional[str] = Field(
+    HydroPump: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

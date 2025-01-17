@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -34,7 +33,7 @@ class MutualCoupling(IdentifiedObject):
     x0: Zero sequence branch-to-branch mutual impedance coupling, reactance.
     """
 
-    First_Terminal: Optional[str] = Field(
+    First_Terminal: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -50,7 +49,7 @@ class MutualCoupling(IdentifiedObject):
         },
     )
 
-    Second_Terminal: Optional[str] = Field(
+    Second_Terminal: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

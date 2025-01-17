@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -50,7 +49,7 @@ class ProprietaryParameterDynamics(Base):
       proprietary user-defined model.
     """
 
-    AsynchronousMachineUserDefined: Optional[str] = Field(
+    AsynchronousMachineUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -66,7 +65,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    CSCUserDefined: Optional[str] = Field(
+    CSCUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -82,7 +81,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    DiscontinuousExcitationControlUserDefined: Optional[str] = Field(
+    DiscontinuousExcitationControlUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -98,7 +97,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    ExcitationSystemUserDefined: Optional[str] = Field(
+    ExcitationSystemUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -114,7 +113,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    LoadUserDefined: Optional[str] = Field(
+    LoadUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -130,7 +129,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    MechanicalLoadUserDefined: Optional[str] = Field(
+    MechanicalLoadUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -146,7 +145,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    OverexcitationLimiterUserDefined: Optional[str] = Field(
+    OverexcitationLimiterUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -162,7 +161,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    PFVArControllerType1UserDefined: Optional[str] = Field(
+    PFVArControllerType1UserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -178,7 +177,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    PFVArControllerType2UserDefined: Optional[str] = Field(
+    PFVArControllerType2UserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -194,7 +193,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    PowerSystemStabilizerUserDefined: Optional[str] = Field(
+    PowerSystemStabilizerUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -210,7 +209,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    SVCUserDefined: Optional[str] = Field(
+    SVCUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -226,7 +225,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    SynchronousMachineUserDefined: Optional[str] = Field(
+    SynchronousMachineUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -242,7 +241,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    TurbineGovernorUserDefined: Optional[str] = Field(
+    TurbineGovernorUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -258,7 +257,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    TurbineLoadControllerUserDefined: Optional[str] = Field(
+    TurbineLoadControllerUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -274,7 +273,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    UnderexcitationLimiterUserDefined: Optional[str] = Field(
+    UnderexcitationLimiterUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -290,7 +289,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    VSCUserDefined: Optional[str] = Field(
+    VSCUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -306,7 +305,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    VoltageAdjusterUserDefined: Optional[str] = Field(
+    VoltageAdjusterUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -322,7 +321,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    VoltageCompensatorUserDefined: Optional[str] = Field(
+    VoltageCompensatorUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -338,7 +337,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    WindPlantUserDefined: Optional[str] = Field(
+    WindPlantUserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -354,7 +353,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    WindType1or2UserDefined: Optional[str] = Field(
+    WindType1or2UserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -370,7 +369,7 @@ class ProprietaryParameterDynamics(Base):
         },
     )
 
-    WindType3or4UserDefined: Optional[str] = Field(
+    WindType3or4UserDefined: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

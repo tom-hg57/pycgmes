@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -21,7 +20,7 @@ class AnalogValue(MeasurementValue):
     AnalogControl: The Control variable associated with the MeasurementValue.
     """
 
-    Analog: Optional[str] = Field(
+    Analog: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -37,7 +36,7 @@ class AnalogValue(MeasurementValue):
         },
     )
 
-    AnalogControl: Optional[str] = Field(
+    AnalogControl: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

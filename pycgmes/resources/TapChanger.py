@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -44,7 +43,7 @@ class TapChanger(PowerSystemResource):
       greater than lowStep and equal to or less than highStep.
     """
 
-    SvTapStep: Optional[str] = Field(
+    SvTapStep: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -60,7 +59,7 @@ class TapChanger(PowerSystemResource):
         },
     )
 
-    TapChangerControl: Optional[str] = Field(
+    TapChangerControl: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

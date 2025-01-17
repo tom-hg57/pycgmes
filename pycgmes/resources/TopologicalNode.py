@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -37,7 +36,7 @@ class TopologicalNode(IdentifiedObject):
     TopologicalIsland: A topological node belongs to a topological island.
     """
 
-    AngleRefTopologicalIsland: Optional[str] = Field(
+    AngleRefTopologicalIsland: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -53,7 +52,7 @@ class TopologicalNode(IdentifiedObject):
         },
     )
 
-    BaseVoltage: Optional[str] = Field(
+    BaseVoltage: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -69,7 +68,7 @@ class TopologicalNode(IdentifiedObject):
         },
     )
 
-    ConnectivityNodeContainer: Optional[str] = Field(
+    ConnectivityNodeContainer: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -101,7 +100,7 @@ class TopologicalNode(IdentifiedObject):
         },
     )
 
-    ReportingGroup: Optional[str] = Field(
+    ReportingGroup: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -117,7 +116,7 @@ class TopologicalNode(IdentifiedObject):
         },
     )
 
-    SvInjection: Optional[str] = Field(
+    SvInjection: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -133,7 +132,7 @@ class TopologicalNode(IdentifiedObject):
         },
     )
 
-    SvVoltage: Optional[str] = Field(
+    SvVoltage: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -165,7 +164,7 @@ class TopologicalNode(IdentifiedObject):
         },
     )
 
-    TopologicalIsland: Optional[str] = Field(
+    TopologicalIsland: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

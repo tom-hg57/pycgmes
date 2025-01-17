@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -24,7 +23,7 @@ class CurveData(Base):
     y2value: The data value of the second Y-axis variable (if present), depending on the Y-axis units.
     """
 
-    Curve: Optional[str] = Field(
+    Curve: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -34,7 +33,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
     sequence: Sequence numbers of the pairs of the input (x) and the output (y) of the lookup table function.
     """
 
-    WindContCurrLimIEC: Optional[str] = Field(
+    WindContCurrLimIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -50,7 +49,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindContPType3IEC: Optional[str] = Field(
+    WindContPType3IEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -66,7 +65,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindContQPQULimIEC: Optional[str] = Field(
+    WindContQPQULimIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -82,7 +81,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindContRotorRIEC: Optional[str] = Field(
+    WindContRotorRIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -98,7 +97,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindGenType3bIEC: Optional[str] = Field(
+    WindGenType3bIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -114,7 +113,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindPitchContPowerIEC: Optional[str] = Field(
+    WindPitchContPowerIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -130,7 +129,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindPlantFreqPcontrolIEC: Optional[str] = Field(
+    WindPlantFreqPcontrolIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -146,7 +145,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindPlantReactiveControlIEC: Optional[str] = Field(
+    WindPlantReactiveControlIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -162,7 +161,7 @@ class WindDynamicsLookupTable(IdentifiedObject):
         },
     )
 
-    WindProtectionIEC: Optional[str] = Field(
+    WindProtectionIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

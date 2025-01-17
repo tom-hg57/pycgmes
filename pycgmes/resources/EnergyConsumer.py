@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -35,7 +34,7 @@ class EnergyConsumer(EnergyConnection):
       varying components.  Load sign convention is used, i.e. positive sign means flow out from a node.
     """
 
-    LoadDynamics: Optional[str] = Field(
+    LoadDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -51,7 +50,7 @@ class EnergyConsumer(EnergyConnection):
         },
     )
 
-    LoadResponse: Optional[str] = Field(
+    LoadResponse: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

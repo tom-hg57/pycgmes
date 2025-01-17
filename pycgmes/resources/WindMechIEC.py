@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -26,7 +25,7 @@ class WindMechIEC(IdentifiedObject):
     kdrt: Drive train stiffness (kdrt). It is a type-dependent parameter.
     """
 
-    WindTurbineType1or2IEC: Optional[str] = Field(
+    WindTurbineType1or2IEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -42,7 +41,7 @@ class WindMechIEC(IdentifiedObject):
         },
     )
 
-    WindTurbineType3IEC: Optional[str] = Field(
+    WindTurbineType3IEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -58,7 +57,7 @@ class WindMechIEC(IdentifiedObject):
         },
     )
 
-    WindTurbineType4bIEC: Optional[str] = Field(
+    WindTurbineType4bIEC: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [

@@ -3,7 +3,6 @@ Generated from the CGMES files via cimgen: https://github.com/sogno-platform/cim
 """
 
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic.dataclasses import dataclass
@@ -24,7 +23,7 @@ class PFVArControllerType1Dynamics(DynamicsFunctionBlock):
     VoltageAdjusterDynamics: Voltage adjuster model associated with this power factor or VAr controller type 1 model.
     """
 
-    ExcitationSystemDynamics: Optional[str] = Field(
+    ExcitationSystemDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -40,7 +39,7 @@ class PFVArControllerType1Dynamics(DynamicsFunctionBlock):
         },
     )
 
-    RemoteInputSignal: Optional[str] = Field(
+    RemoteInputSignal: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
@@ -56,7 +55,7 @@ class PFVArControllerType1Dynamics(DynamicsFunctionBlock):
         },
     )
 
-    VoltageAdjusterDynamics: Optional[str] = Field(
+    VoltageAdjusterDynamics: str | None = Field(
         default=None,
         json_schema_extra={
             "in_profiles": [
