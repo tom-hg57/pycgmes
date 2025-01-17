@@ -9,4 +9,5 @@ NAMESPACES: dict[str, str] = {  # Those are strings, not real addresses, hence t
     "md": "http://iec.ch/TC57/61970-552/ModelDescription/1#",  # NOSONAR
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",  # NOSONAR
     "xsd": "http://www.w3.org/2001/XMLSchema#",  # NOSONAR
+    "eu": "http://iec.ch/TC57/CIM100-European#",  # NOSONAR
 }
