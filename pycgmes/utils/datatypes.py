@@ -1,12 +1,12 @@
 from pydantic import Field
 from pydantic.dataclasses import dataclass
-from .constants import NAMESPACES
 
-from .config import cgmes_resource_config
-from .profile import BaseProfile
+from ..resources.types.Currency import Currency
 from ..resources.types.UnitMultiplier import UnitMultiplier
 from ..resources.types.UnitSymbol import UnitSymbol
-from ..resources.types.Currency import Currency
+from .config import cgmes_resource_config
+from .constants import NAMESPACES
+from .profile import BaseProfile
 
 
 @dataclass(config=cgmes_resource_config)

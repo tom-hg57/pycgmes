@@ -37,7 +37,7 @@ class Reader(BaseModel):
         """
         if start_dict:
             self.import_result = start_dict
-        self.import_result["meta_info"] = dict(namespaces=self._get_namespaces(xml_files[0]), urls={})
+        self.import_result["meta_info"] = {"namespaces": self._get_namespaces(xml_files[0]), "urls": {}}
         namespace_rdf = self._get_rdf_namespace()
 
         bases = ["{" + self.import_result["meta_info"]["namespaces"]["cim"] + "}"]
@@ -86,9 +86,9 @@ class Reader(BaseModel):
         :return:    class_name, uuid  (example "ACLineSgement", instance_uuid: "mRID")
         """
         class_name = elem.tag[len(class_namespace) :]
-        uuid = elem.get("{%s}ID" % namespace_rdf)
+        uuid = elem.get(f"{{{namespace_rdf}}}ID")
         if uuid is None:
-            uuid = elem.get("{%s}about" % namespace_rdf)
+            uuid = elem.get(f"{{{namespace_rdf}}}about")
         if uuid and uuid.startswith("#"):
             uuid = uuid[1:]
         if uuid and uuid.startswith("_"):
@@ -121,10 +121,10 @@ class Reader(BaseModel):
             self._log_message("info", info_msg)
 
         except ModuleNotFoundError:
-            error_msg = "Module {} not implemented".format(class_name)
+            error_msg = f"Module {class_name} not implemented"
             self._log_message("errors", error_msg)
         except Exception as e:
-            error_msg = "Could not create/update {}, {}".format(uuid, e)
+            error_msg = f"Could not create/update {uuid}, {e}"
             self._log_message("errors", error_msg)
 
     def _check_metadata(self, elem):
@@ -133,7 +133,7 @@ class Reader(BaseModel):
                 if package_key in elem.text:
                     break
         # the author of all imported files should be the same, avoid multiple entries
-        elif "author" not in self.import_result["meta_info"].keys():
+        elif "author" not in self.import_result["meta_info"]:
             if any(author_field in elem.tag for author_field in ("Model.createdBy", "Model.modelingAuthoritySet")):
                 self.import_result["meta_info"]["author"] = elem.text
 
@@ -160,7 +160,7 @@ class Reader(BaseModel):
             namespace = self.import_result["meta_info"]["namespaces"]["rdf"]
         except KeyError:
             namespace = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"  # NOSONAR
-            logger.warning("No rdf namespace found. Using %s" % namespace)
+            logger.warning(f"No rdf namespace found. Using {namespace}")
         return namespace
 
     def _get_path_to_module(self, class_name: str) -> str:

@@ -150,7 +150,7 @@ class Base:
             for f in fields(parent):
                 shortname = f.name
                 qualname = f"{parent.apparent_name()}.{shortname}"
-                infos = dict()
+                infos = {}
 
                 if f not in self.cgmes_attribute_names_in_profile(profile) or shortname in seen_attrs:
                     continue
@@ -295,7 +295,7 @@ class Base:
         """Parsing the mRID from etree attributes"""
         mrid_dict = {}
         for key, value in xml_tree.attrib.items():
-            if key.endswith("ID") or key.endswith("about"):
+            if key.endswith(("ID", "about")):
                 if value.startswith("#"):
                     value = value[1:]
                 if value.startswith("_"):
@@ -327,8 +327,8 @@ class Base:
 
         elif class_attribute["is_primitive_attribute"] or class_attribute["is_datatype_attribute"]:
             attr_value = xml_attributes[0].text
-            if self.__dataclass_fields__[attr_name].type == bool:
-                attr_value = {"true": True, "false": False}.get(attr_value, None)
+            if self.__dataclass_fields__[attr_name] is bool:
+                attr_value = {"true": True, "false": False}.get(attr_value)
             else:
                 # types are int, float or str (date, time and datetime treated as str)
                 attr_value = self.__dataclass_fields__[attr_name].type(attr_value)

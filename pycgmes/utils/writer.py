@@ -19,8 +19,8 @@ class Writer(BaseModel):
         self,
         outputfile: str,
         model_id: str,
-        custom_profiles: list[BaseProfile] = [],
-        custom_namespaces: dict[str, str] = {},
+        custom_profiles: list[BaseProfile] | None = None,
+        custom_namespaces: dict[str, str] | None = None,
     ) -> dict[BaseProfile, str]:
         """Write CIM RDF/XML files.
         This function writes CIM objects into one or more RDF/XML files separated by profiles.
@@ -34,6 +34,8 @@ class Writer(BaseModel):
 
         :return:                    Mapping of profile to outputfile.
         """
+        custom_namespaces = custom_namespaces or {}
+        custom_profiles = custom_profiles or []
         profile_list: list[BaseProfile] = list(Profile)
         profile_list += {p for p in custom_profiles if p not in profile_list}
         profile_file_map: dict[BaseProfile, str] = {}
@@ -47,7 +49,7 @@ class Writer(BaseModel):
         return profile_file_map
 
     def _generate(
-        self, profile: BaseProfile, model_id: str, custom_namespaces: dict[str, str] = {}
+        self, profile: BaseProfile, model_id: str, custom_namespaces: dict[str, str] | None = None
     ) -> etree._ElementTree | None:
         """Write CIM objects as RDF/XML data to a string.
 
@@ -59,6 +61,7 @@ class Writer(BaseModel):
 
         :return:                    etree of the profile
         """
+        custom_namespaces = custom_namespaces or {}
         fullmodel = {
             "id": model_id,
             "Model": self.writer_metadata,
@@ -92,8 +95,5 @@ class Writer(BaseModel):
             if obj_etree is not None:
                 root.append(obj_etree)
                 count += 1
-        if count > 0:
-            output = etree.ElementTree(root)
-        else:
-            output = None
+        output = etree.ElementTree(root) if count > 0 else None
         return output
