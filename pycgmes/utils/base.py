@@ -328,7 +328,7 @@ class Base:
         elif class_attribute["is_primitive_attribute"] or class_attribute["is_datatype_attribute"]:
             attr_value = xml_attributes[0].text
             assert attr_value is not None
-            if self.__dataclass_fields__[attr_name] is bool:
+            if self.__dataclass_fields__[attr_name].type is bool:
                 attr_value = {"true": True, "false": False}.get(attr_value)
             else:
                 # types are int, float or str (date, time and datetime treated as str)
